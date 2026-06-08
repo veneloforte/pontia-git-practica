@@ -1,0 +1,16 @@
+name: Manual Demo Workflow
+
+on:
+  workflow_dispatch:
+    inputs:
+      custom_message:
+        description: 'Mensaje de texto a imprimir'
+        required: true
+        default: 'Hola desde GitHub Actions!'
+
+jobs:
+  print-message:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Imprimir mensaje recibido
+        run: echo "${{ github.event.inputs.custom_message }}"
